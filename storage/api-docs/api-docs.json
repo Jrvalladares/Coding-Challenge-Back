@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Challenge API Reference",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/trucks": {
+            "get": {
+                "tags": [
+                    "TRUCKS"
+                ],
+                "summary": "Get a list of trucks.",
+                "operationId": "App\\Http\\Documentation\\TruckDocumentation::index",
+                "responses": {
+                    "200": {
+                        "description": "Process successfully completed"
+                    },
+                    "default": {
+                        "description": "Unexpected error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "TRUCKS"
+                ],
+                "summary": "Store a new truck.",
+                "operationId": "App\\Http\\Documentation\\TruckDocumentation::store",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the truck.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "The city.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "The state.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "zip",
+                        "in": "query",
+                        "description": "The zip code.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "zip": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Truck Name",
+                                    "city": "Guayana City",
+                                    "state": "Bolívar",
+                                    "zip": "0000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Process successfully completed"
+                    },
+                    "default": {
+                        "description": "Unexpected error"
+                    }
+                }
+            }
+        },
+        "/api/trucks/{id}": {
+            "put": {
+                "tags": [
+                    "TRUCKS"
+                ],
+                "summary": "Update the data for a particular truck. The identifier (ID) sent as a parameter corresponds to the truck in question.",
+                "operationId": "App\\Http\\Documentation\\TruckDocumentation::update",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the truck.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "The city.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "The state.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "zip",
+                        "in": "query",
+                        "description": "The zip code.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Process successfully completed"
+                    },
+                    "default": {
+                        "description": "Unexpected error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TRUCKS"
+                ],
+                "summary": "Delete the data for a particular truck. The identifier (ID) sent as a parameter corresponds to the truck in question.",
+                "operationId": "App\\Http\\Documentation\\TruckDocumentation::destroy",
+                "responses": {
+                    "200": {
+                        "description": "process successfully completed"
+                    },
+                    "default": {
+                        "description": "Unexpected error"
+                    }
+                }
+            }
+        }
+    }
+}
